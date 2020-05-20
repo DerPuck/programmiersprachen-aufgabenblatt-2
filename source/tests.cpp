@@ -3,6 +3,7 @@
 #include "Vec2.hpp"
 
 
+
 TEST_CASE ("describe_Vec2", "[Vec2]")
 {
   Vec2 a = {};
@@ -43,13 +44,32 @@ TEST_CASE ("describe_*Vec2", "[Vec2]")
 {
   Vec2 a = {};
   Vec2 b {5.1f, -9.3f};
-  a *= 0;
+  a *= 0.0f;
 REQUIRE (a.x_ == Approx (0.0f));
 REQUIRE (a.y_ == Approx(0.0f));
-  b *= 10;
+  b *= 10.0f;
 REQUIRE (b.x_ == Approx(51.0f));
 REQUIRE (b.y_ == Approx(-93.0f));
+  b *= -10.0f;
+REQUIRE (b.x_ == Approx(-510.0f));
+REQUIRE (b.y_ == Approx(930.0f));
+}
 
+TEST_CASE ("describe_/Vec2", "[Vec2]")
+{
+  Vec2 a = {};
+  Vec2 b {5.1f, -9.3f};
+  Vec2 c {5.1f, -9.3f};
+
+  a /= 1.0f;
+REQUIRE (a.x_ == Approx (0.0f));
+REQUIRE (a.y_ == Approx(0.0f));
+  b /= 0.0f;
+REQUIRE (b.x_ == Approx (5.1f));
+REQUIRE (b.y_ == Approx(-9.3f));
+  c /= -10.0f;
+REQUIRE (c.x_ == Approx(-0.51));
+REQUIRE (c.y_ == Approx(0.93));
 }
 
 
