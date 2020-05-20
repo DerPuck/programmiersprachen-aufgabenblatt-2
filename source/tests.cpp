@@ -3,7 +3,7 @@
 #include "Vec2.hpp"
 
 
-
+//Aufgabe2.2
 TEST_CASE ("describe_Vec2", "[Vec2]")
 {
   Vec2 a = {};
@@ -14,6 +14,7 @@ REQUIRE (5.1f == Approx (b.x_));
 REQUIRE (-9.3f == Approx (b.y_));
 }
 
+//Aufgabe2.3
 TEST_CASE ("describe_+Vec2", "[Vec2]")
 {
   Vec2 a = {};
@@ -70,6 +71,16 @@ REQUIRE (b.y_ == Approx(-9.3f));
   c /= -10.0f;
 REQUIRE (c.x_ == Approx(-0.51));
 REQUIRE (c.y_ == Approx(0.93));
+}
+
+//Aufgabe2.4
+TEST_CASE ("describe_freefunction/Vec2", "[Vec2]")
+{
+  Vec2 a = {};
+  Vec2 b {5.1f, -9.3f};
+  Vec2 n1 = a + b;
+REQUIRE (n1.x_ == Approx(5.1f));
+REQUIRE (n1.y_ == Approx(-9.3f));
 }
 
 

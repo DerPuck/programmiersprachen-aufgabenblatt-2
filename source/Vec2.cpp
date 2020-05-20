@@ -21,11 +21,18 @@ Vec2& Vec2::operator*=(float s) {
 }
 Vec2& Vec2::operator /=(float s) {
     if(s == 0){
-        std::cout << " Divide / 0 geht nicht du Genie" << std::endl;
+        std::cout << " Divide / 0 geht nicht du Genie ;-)" << std::endl;
         return *this;
     }
-    else
+    else {
       x_ /= s;
       y_ /= s;
       return *this;
+    }
+}
+
+Vec2 operator +( Vec2 const & u, Vec2 const & v) {
+  Vec2 nVec2{ u.x_, u.y_};
+  nVec2 += v;
+  return nVec2;
 }
