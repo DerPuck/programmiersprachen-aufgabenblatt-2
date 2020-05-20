@@ -74,15 +74,31 @@ REQUIRE (c.y_ == Approx(0.93));
 }
 
 //Aufgabe2.4
-TEST_CASE ("describe_freefunction/Vec2", "[Vec2]")
+TEST_CASE ("describe_freefunction+Vec2", "[Vec2]")
 {
   Vec2 a = {};
   Vec2 b {5.1f, -9.3f};
   Vec2 n1 = a + b;
 REQUIRE (n1.x_ == Approx(5.1f));
 REQUIRE (n1.y_ == Approx(-9.3f));
+  Vec2 c {-3.5f, 2.5f};
+  Vec2 n2 = b + c;
+REQUIRE (n2.x_ == Approx (1.6f));
+REQUIRE (n2.y_ == Approx(-6.8f));
 }
 
+TEST_CASE ("describe_freefunction-Vec2", "[Vec2]")
+{
+  Vec2 a = {};
+  Vec2 b {5.1f, -9.3f};
+  Vec2 n1 = a - b;
+REQUIRE (n1.x_ == Approx (-5.1f));
+REQUIRE (n1.y_ == Approx(9.3f));
+  Vec2 c {-3.5f, 2.5f};
+  Vec2 n2 = b - c;
+REQUIRE (n2.x_ == Approx (8.6f));
+REQUIRE (n2.y_ == Approx(-11.8f));
+}
 
 int main(int argc, char *argv[])
 {

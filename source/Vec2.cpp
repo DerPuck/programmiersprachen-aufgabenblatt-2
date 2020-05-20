@@ -36,3 +36,9 @@ Vec2 operator +( Vec2 const & u, Vec2 const & v) {
   nVec2 += v;
   return nVec2;
 }
+
+Vec2 operator -( Vec2 const & u, Vec2 const & v) {
+  Vec2 nVec2{ u.x_, u.y_};
+  nVec2 -= v;
+  return nVec2;
+}
