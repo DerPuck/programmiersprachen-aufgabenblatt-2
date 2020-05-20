@@ -21,7 +21,14 @@ TEST_CASE ("describe_+Vec2", "[Vec2]")
 REQUIRE (a.x_ == Approx (5.1f));
 REQUIRE (a.y_ == Approx(-9.3f));
 }
-
+TEST_CASE ("describe_-Vec2", "[Vec2]")
+{
+  Vec2 a = {};
+  Vec2 b {5.1f, -9.3f};
+  a -= b;
+REQUIRE (a.x_ == Approx (-5.1f));
+REQUIRE (a.y_ == Approx(9.3f));
+}
 
 int main(int argc, char *argv[])
 {
