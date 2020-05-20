@@ -39,6 +39,20 @@ REQUIRE (b.x_ == Approx (8.6f));
 REQUIRE (b.y_ == Approx(-11.8f));
 }
 
+TEST_CASE ("describe_*Vec2", "[Vec2]")
+{
+  Vec2 a = {};
+  Vec2 b {5.1f, -9.3f};
+  a *= 0;
+REQUIRE (a.x_ == Approx (0.0f));
+REQUIRE (a.y_ == Approx(0.0f));
+  b *= 10;
+REQUIRE (b.x_ == Approx(51.0f));
+REQUIRE (b.y_ == Approx(-93.0f));
+
+}
+
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
