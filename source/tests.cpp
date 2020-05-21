@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
-#include "Vec2.hpp"
+#include "vec2.hpp"
 
 
 //Aufgabe2.2
