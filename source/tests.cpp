@@ -100,6 +100,57 @@ REQUIRE (n2.x_ == Approx (8.6f));
 REQUIRE (n2.y_ == Approx(-11.8f));
 }
 
+TEST_CASE ("describe_freefunction*Vec2", "[Vec2]")
+{
+  Vec2 a = {};
+  Vec2 b {5.1f, -9.3f};
+  Vec2 n1 = a * 10;
+REQUIRE (n1.x_ == Approx (0.0f));
+REQUIRE (n1.y_ == Approx(0.0f));
+  Vec2 c {-3.5f, 2.5f};
+  Vec2 n2 = c * -10;
+REQUIRE (n2.x_ == Approx (35.0f));
+REQUIRE (n2.y_ == Approx(-25.0f));
+  Vec2 d {-3.5f, 2.5f};
+  Vec2 n3 = d * 0;
+REQUIRE (n3.x_ == Approx (0.0f));
+REQUIRE (n3.y_ == Approx(0.0f));
+}
+
+TEST_CASE ("describe_freefunction/Vec2", "[Vec2]")
+{
+  Vec2 a = {};
+  Vec2 b {5.1f, -9.3f};
+  Vec2 n1 = a / 10;
+REQUIRE (n1.x_ == Approx (0.0f));
+REQUIRE (n1.y_ == Approx(0.0f));
+  Vec2 c {-3.5f, 2.5f};
+  Vec2 n2 = c / -10;
+REQUIRE (n2.x_ == Approx (0.35f));
+REQUIRE (n2.y_ == Approx(-0.25f));
+  Vec2 e {-3.5f, 2.5f};
+  Vec2 n3 = e / 0;
+REQUIRE (n3.x_ == Approx (-3.5f));
+REQUIRE (n3.y_ == Approx(2.5f));
+}
+
+TEST_CASE ("describe_freefunction*doubleVec2", "[Vec2]")
+{
+  Vec2 a = {};
+  Vec2 b {5.1f, -9.3f};
+  Vec2 n1 = 10 * a;
+REQUIRE (n1.x_ == Approx (0.0f));
+REQUIRE (n1.y_ == Approx(0.0f));
+  Vec2 c {-3.5f, 2.5f};
+  Vec2 n2 = -10 * c;
+REQUIRE (n2.x_ == Approx (35.0f));
+REQUIRE (n2.y_ == Approx(-25.0f));
+  Vec2 d {-3.5f, 2.5f};
+  Vec2 n3 = 0 * d;
+REQUIRE (n3.x_ == Approx (0.0f));
+REQUIRE (n3.y_ == Approx(0.0f));
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
