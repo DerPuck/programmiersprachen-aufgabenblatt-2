@@ -3,7 +3,7 @@ add_executable(example
   window.cpp
   glew.c
   example.cpp
-  Vec2.cpp
+  vec2.cpp
   mat2.cpp
   )
 target_link_libraries(example
@@ -18,7 +18,7 @@ add_dependencies(example glfw nanovg ${COPY_BINARY})
 add_executable(tests
   glew.c
   tests.cpp
-  Vec2.cpp
+  vec2.cpp
   mat2.cpp
   )
 target_link_libraries(tests

@@ -1,6 +1,8 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
 #include "vec2.hpp"
+#include "mat2.hpp"
+
 
 
 //Aufgabe2.2
@@ -151,6 +153,40 @@ REQUIRE (n3.x_ == Approx (0.0f));
 REQUIRE (n3.y_ == Approx(0.0f));
 }
 
+//Aufgabe2.5
+TEST_CASE ("describe_*Mat2", "[Mat2]")
+{
+Mat2 a {4.0f,5.0f,3.0f,7.0f};
+Mat2 b {-1.0f,0.0f,-5.0f,2.0f};
+Mat2 c {0.0f,0.0f,0.0f,0.0f};
+a *= b;
+REQUIRE (a.e_00 == Approx (-29.0f));
+REQUIRE (a.e_10== Approx(10.0f));
+REQUIRE (a.e_01 == Approx (-38.0f));
+REQUIRE (a.e_11== Approx(14.0f));
+b *= c;
+REQUIRE (b.e_00 == Approx (0.0f));
+REQUIRE (b.e_10== Approx(0.0f));
+REQUIRE (b.e_01 == Approx (0.0f));
+REQUIRE (b.e_11== Approx(0.0f));
+}
+
+TEST_CASE ("describe_freefunction*Mat2", "[Mat2]")
+{
+Mat2 a {4.0f,5.0f,3.0f,7.0f};
+Mat2 b {-1.0f,0.0f,-5.0f,2.0f};
+Mat2 c {0.0f,0.0f,0.0f,0.0f};
+Mat2 d = a * b;
+REQUIRE (d.e_00 == Approx (-29.0f));
+REQUIRE (d.e_10== Approx(10.0f));
+REQUIRE (d.e_01 == Approx (-38.0f));
+REQUIRE (d.e_11== Approx(14.0f));
+Mat2 f = b * c;
+REQUIRE (f.e_00 == Approx (0.0f));
+REQUIRE (f.e_10== Approx(0.0f));
+REQUIRE (f.e_01 == Approx (0.0f));
+REQUIRE (f.e_11== Approx(0.0f));
+}
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
