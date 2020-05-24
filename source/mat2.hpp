@@ -1,6 +1,6 @@
 // Mat2 definition
 #include <array>
-
+#include "vec2.hpp"
 
 struct Mat2 
 {
@@ -18,3 +18,5 @@ struct Mat2
 
 // TODO (in mat2 .cpp ) Definition v. operator *
 Mat2 operator *( Mat2 const & m1 , Mat2 const & m2 );
+
+Vec2 operator *( Mat2 const & m , Vec2 const & v );

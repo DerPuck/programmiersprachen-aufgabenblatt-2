@@ -187,6 +187,25 @@ REQUIRE (f.e_10== Approx(0.0f));
 REQUIRE (f.e_01 == Approx (0.0f));
 REQUIRE (f.e_11== Approx(0.0f));
 }
+
+//Aufgabe2.6
+TEST_CASE ("describe_Vec2*Mat2", "[Mat2]")
+{
+Mat2 a {4.0f,5.0f,3.0f,7.0f};
+Mat2 b {-1.0f,0.0f,-5.0f,2.0f};
+Mat2 c {0.0f,0.0f,0.0f,0.0f};
+Vec2 d {2.0f,4.0f};
+Vec2 e {0.0f,0.0f};
+Vec2 v1 = a * d;
+REQUIRE (v1.x_ == Approx (28.0f));
+REQUIRE (v1.y_== Approx(34.0f));
+Vec2 v2 = b * e;
+REQUIRE (v2.x_ == Approx (0.0f));
+REQUIRE (v2.y_== Approx(0.0f));
+Vec2 v3 = c * d;
+REQUIRE (v3.x_ == Approx (0.0f));
+REQUIRE (v3.y_== Approx(0.0f));
+}
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

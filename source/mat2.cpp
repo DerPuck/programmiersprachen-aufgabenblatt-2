@@ -13,8 +13,16 @@ Mat2& Mat2::operator *=(Mat2 const& m) {
     return *this;
 }
 //Aufgabe2.5
-Mat2 operator *( Mat2 const & m1 , Mat2 const & m2) {
+Mat2 operator *(Mat2 const & m1 , Mat2 const & m2) {
   Mat2 nMat2 {m1};
   nMat2 *= m2;
   return nMat2;
+}
+
+//Aufgabe2.6
+Vec2 operator *(Mat2 const & m , Vec2 const & v) {
+  Vec2 nVec2;
+  nVec2.x_ = m.e_00 * v.x_ + m.e_10 * v.y_;
+  nVec2.y_ = m.e_01 * v.x_ + m.e_11 * v.y_;
+  return nVec2;
 }
