@@ -2,6 +2,8 @@
 #include <catch.hpp>
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
+
 #include <cmath>
 
 
@@ -264,6 +266,14 @@ REQUIRE (make_rotation_mat2(-M_PI).e_00 == Approx (-1.0f));
 REQUIRE (make_rotation_mat2(-M_PI).e_10 == Approx (0.0f));
 REQUIRE (make_rotation_mat2(-M_PI).e_01 == Approx (0.0f));
 REQUIRE (make_rotation_mat2(-M_PI).e_11 == Approx (-1.0f));
+}
+
+TEST_CASE ("describe_color", "[color]")
+{
+  color a;
+REQUIRE (a.r == Approx (0.57f));
+REQUIRE (a.g == Approx (0.57f));
+REQUIRE (a.b == Approx (0.57f));
 
 }
 int main(int argc, char *argv[])
