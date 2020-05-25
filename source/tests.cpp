@@ -2,6 +2,7 @@
 #include <catch.hpp>
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include <cmath>
 
 
 
@@ -205,6 +206,65 @@ REQUIRE (v2.y_== Approx(0.0f));
 Vec2 v3 = c * d;
 REQUIRE (v3.x_ == Approx (0.0f));
 REQUIRE (v3.y_== Approx(0.0f));
+}
+
+TEST_CASE ("describe_DeterminanteMat2", "[Det]")
+{
+Mat2 a {4.0f,5.0f,3.0f,7.0f};
+Mat2 b {-1.0f,0.0f,-5.0f,2.0f};
+Mat2 c {0.0f,0.0f,0.0f,0.0f};
+REQUIRE (a.det() == Approx (13.0f));
+REQUIRE (b.det() == Approx(-2.0f));
+REQUIRE (c.det() == Approx (0.0f));
+}
+
+TEST_CASE ("describe_inverseMat2", "[Det]")
+{
+Mat2 a {4.0f,5.0f,3.0f,7.0f};
+Mat2 b {-1.0f,0.0f,-5.0f,2.0f};
+Mat2 c {0.0f,0.0f,0.0f,0.0f};
+
+REQUIRE (inverse(a).e_00 == Approx (0.53846f));
+REQUIRE (inverse(a).e_10 == Approx (0.23077f));
+REQUIRE (inverse(a).e_01 == Approx (0.38462f));
+REQUIRE (inverse(a).e_11 == Approx (0.30769f));
+REQUIRE (inverse(c).e_00 == Approx (0.0f));
+REQUIRE (inverse(c).e_10 == Approx (0.0f));
+REQUIRE (inverse(c).e_01 == Approx (0.0f));
+REQUIRE (inverse(c).e_11 == Approx (0.0f));
+}
+
+TEST_CASE ("describe_transposeMat2", "[Mat2]")
+{
+Mat2 a {4.0f,5.0f,3.0f,7.0f};
+Mat2 b {-1.0f,0.0f,-5.0f,2.0f};
+Mat2 c {0.0f,0.0f,0.0f,0.0f};
+
+REQUIRE (transpose(a).e_00 == Approx (4.0f));
+REQUIRE (transpose(a).e_10 == Approx (3.0f));
+REQUIRE (transpose(a).e_01 == Approx (5.0f));
+REQUIRE (transpose(a).e_11 == Approx (7.0f));
+REQUIRE (transpose(c).e_00 == Approx (0.0f));
+REQUIRE (transpose(c).e_10 == Approx (0.0f));
+REQUIRE (transpose(c).e_01 == Approx (0.0f));
+REQUIRE (transpose(c).e_11 == Approx (0.0f));
+}
+
+TEST_CASE ("describe_make_rotationMat2", "[Mat2]")
+{
+REQUIRE (make_rotation_mat2(M_PI).e_00 == Approx (-1.0f));
+REQUIRE (make_rotation_mat2(M_PI).e_10 == Approx (0.0f));
+REQUIRE (make_rotation_mat2(M_PI).e_01 == Approx (0.0f));
+REQUIRE (make_rotation_mat2(M_PI).e_11 == Approx (-1.0f));
+REQUIRE (make_rotation_mat2(2*M_PI).e_00 == Approx (1.0f));
+REQUIRE (make_rotation_mat2(2*M_PI).e_10 == Approx (0.0f));
+REQUIRE (make_rotation_mat2(2*M_PI).e_01 == Approx (0.0f));
+REQUIRE (make_rotation_mat2(2*M_PI).e_11 == Approx (1.0f));
+REQUIRE (make_rotation_mat2(-M_PI).e_00 == Approx (-1.0f));
+REQUIRE (make_rotation_mat2(-M_PI).e_10 == Approx (0.0f));
+REQUIRE (make_rotation_mat2(-M_PI).e_01 == Approx (0.0f));
+REQUIRE (make_rotation_mat2(-M_PI).e_11 == Approx (-1.0f));
+
 }
 int main(int argc, char *argv[])
 {
