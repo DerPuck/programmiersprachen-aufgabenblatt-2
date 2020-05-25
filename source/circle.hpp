@@ -4,12 +4,14 @@
 #include "vec2.hpp"
 
 class Circle {
-  Circle(Color const& c, Vec2 center , float r);
+  public: Circle(Color const& c, Vec2 center , float radius);
 
-  Color color_;
-  Vec2 cpoint_;
-  float radius_;
-  
+  public: Color color_;
+  public: Vec2 center_;
+  public: float radius_;
+
+  float circumference() const;
+
 };
 
 #endif

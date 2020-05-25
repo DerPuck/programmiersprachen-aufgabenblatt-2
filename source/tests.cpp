@@ -3,6 +3,8 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
 
 #include <cmath>
 
@@ -270,11 +272,23 @@ REQUIRE (make_rotation_mat2(-M_PI).e_11 == Approx (-1.0f));
 
 TEST_CASE ("describe_color", "[color]")
 {
-  color a;
+Color a;
 REQUIRE (a.r == Approx (0.57f));
 REQUIRE (a.g == Approx (0.57f));
 REQUIRE (a.b == Approx (0.57f));
+}
 
+TEST_CASE ("describe_circumferencecircle", "[circumference]")
+{
+Circle a {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, 1.0f};
+float f1 = a.circumference();
+REQUIRE (f1 == Approx(6.28319f));
+Circle b {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, 0.0f};
+float f2 = b.circumference();
+REQUIRE (f2 == Approx(0.0f));
+Circle c {{0.57f, 0.57f, 0.57f}, {-4.0f, 4.0f}, 4.0f};
+float f3 = c.circumference();
+REQUIRE (f3 == Approx(25.13274f));
 }
 int main(int argc, char *argv[])
 {

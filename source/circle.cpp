@@ -1,8 +1,14 @@
 #include "circle.hpp"
+#include "vec2.hpp"
+#include <cmath>
 
-Circle::Circle(Color const& c, Vec2 center , float r){
+Circle::Circle(Color const& c, Vec2 center , float radius){
     
-    Color color_ = c;
-    Vec2 cpoint_ = center;
-    float radius_ = r;
+  color_ = {c};
+  center_ = {center};
+  radius_ = {radius};
+}
+
+float Circle::circumference() const{
+  return 2 * M_PI * radius_;
 }
