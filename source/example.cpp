@@ -25,6 +25,8 @@ int main(int argc, char* argv[])
     //first circ test
     Circ circ1_ {};
       circ1_.draw(win);
+    Circ circ2_ {{0.6f,0.1f,0.1f}, {300.0f,300.0f}, 100};
+      circ2_.draw(win);
 
     bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 

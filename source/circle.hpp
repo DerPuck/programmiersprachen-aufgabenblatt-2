@@ -9,14 +9,14 @@ class Circ {
   Circ(Color const& c, Vec2 center , float radius);
   Circ();
 
-  Color color_;
-  Vec2 center_;
-  float radius_;
-
   float circumference() const;
 
   void draw(Window const& win) const;
 
+  private:
+  Color color_;
+  Vec2 center_;
+  float radius_;
 
 };
 
