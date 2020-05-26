@@ -2,6 +2,9 @@
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
+#include "rectangle.hpp"
+#include "color.hpp"
+#include "vec2.hpp"
 
 
 int main(int argc, char* argv[])
@@ -12,6 +15,11 @@ int main(int argc, char* argv[])
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }
+    //first rect test
+    Rect rect1_ {};
+      rect1_.draw(win);
+    Rect rect2_ {{0.6f,0.1f,0.1f}, {100.0f, 100.0f}, {400.0f, 400.0f}};
+      rect2_.draw(win);
 
     bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
