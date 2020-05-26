@@ -18,15 +18,15 @@ int main(int argc, char* argv[])
     }
     //first rect test
     Rect rect1_ {};
-      rect1_.draw(win);
+      rect1_.draw(win, 1.0);
     Rect rect2_ {{0.6f,0.1f,0.1f}, {100.0f, 100.0f}, {400.0f, 400.0f}};
-      rect2_.draw(win);
+      rect2_.draw(win, 1.0);
 
     //first circ test
     Circ circ1_ {};
-      circ1_.draw(win);
+      circ1_.draw(win, 1.0);
     Circ circ2_ {{0.6f,0.1f,0.1f}, {300.0f,300.0f}, 100};
-      circ2_.draw(win);
+      circ2_.draw(win, 5.0);
 
     bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 

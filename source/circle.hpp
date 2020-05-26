@@ -11,7 +11,7 @@ class Circ {
 
   float circumference() const;
 
-  void draw(Window const& win) const;
+  void draw(Window const& win, float thickness) const;
 
   private:
   Color color_;

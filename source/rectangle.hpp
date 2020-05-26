@@ -11,14 +11,13 @@ class Rect {
 
   float circumference() const;
 
-  void draw(Window const& win) const;
+  void draw(Window const& win, float thickness) const;
 
   private:
   Color color_;
   Vec2 min_ = {0.0f, 0.0f};
   Vec2 max_ = {0.0f, 0.0f};
   
-
 };
 
 #endif
