@@ -19,9 +19,30 @@ float Rect::circumference() const{
   return 2 * (max_.x_ - min_.x_) + 2 * (max_.y_ - min_.y_);
 }
 
+void Rect::draw(Window const& win) const {
+    win.draw_line(max_.x_, max_.y_, min_.x_, max_.y_, color_.r, color_.g, color_.b);
+    win.draw_line(max_.x_, max_.y_, max_.x_, min_.y_, color_.r, color_.g, color_.b);
+    win.draw_line(min_.x_, min_.y_, min_.x_, max_.y_, color_.r, color_.g, color_.b);
+    win.draw_line(min_.x_, min_.y_, max_.x_, min_.y_, color_.r, color_.g, color_.b);
+}
 void Rect::draw(Window const& win, float thickness) const {
     win.draw_line(max_.x_, max_.y_, min_.x_, max_.y_, color_.r, color_.g, color_.b, thickness);
     win.draw_line(max_.x_, max_.y_, max_.x_, min_.y_, color_.r, color_.g, color_.b, thickness);
     win.draw_line(min_.x_, min_.y_, min_.x_, max_.y_, color_.r, color_.g, color_.b, thickness);
     win.draw_line(min_.x_, min_.y_, max_.x_, min_.y_, color_.r, color_.g, color_.b, thickness);
 }
+
+bool Rect::is_inside(Vec2 const& point) const{
+  if(point.x_ > min_.x_ &&
+     point.x_ < max_.x_ && 
+     point.y_ > min_.y_ && 
+     point.y_ < max_.y_) {
+      return true;
+  }
+  else
+  {
+      return false;
+  }
+  
+}
+

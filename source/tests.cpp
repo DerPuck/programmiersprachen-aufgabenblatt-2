@@ -303,6 +303,35 @@ Rect c {{0.57f, 0.57f, 0.57f}, {4.0f, 4.0f}, {4.0f, 5.0f}};
 float f3 = c.circumference();
 REQUIRE (f3 == Approx(2.0f));
 }
+
+TEST_CASE ("describe_isinrectangle", "[is_inside]")
+{
+Rect a {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, {3.0f, 3.0f}};
+Vec2 point1 {1.0f, 1.0f,};
+bool b1 = a.is_inside(point1);
+REQUIRE (b1 == true);
+Rect b {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, {3.0f, 3.0f}};
+Vec2 point2 {5.0f, 5.0f,};
+bool b2 = a.is_inside(point2);
+REQUIRE (b2 == false);
+Rect c {{0.57f, 0.57f, 0.57f}, {-2.0f, -2.0f}, {2.0f, 2.0f}};
+Vec2 point3 {-1.0f, -1.0f,};
+bool b3 = c.is_inside(point3);
+REQUIRE (b3 == true);
+}
+
+TEST_CASE ("describe_isincircle", "[is_inside]")
+{
+Circ a {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, 5.0f};
+Vec2 point1 {0.0f, 3.0f};
+bool b1 = a.is_inside(point1);
+REQUIRE (b1 == true);
+Circ b {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, 5.0f};
+Vec2 point2 {0.0f, 6.0f};
+bool b2 = b.is_inside(point2);
+REQUIRE (b2 == false);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

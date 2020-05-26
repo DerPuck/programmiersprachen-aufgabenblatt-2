@@ -12,7 +12,12 @@ class Rect {
 
   float circumference() const;
 
+  void draw(Window const& win) const;
+
   void draw(Window const& win, float thickness) const;
+
+  bool is_inside(Vec2 const& point) const;
+
 
   private:
   //Color col; //Does not identify the Color class so i made this. no idea thy but it works :)
