@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     Rect rect1_ {};
       rect1_.draw(win, 1.0);
     Rect rect2_ {{0.6f,0.1f,0.1f}, {100.0f, 100.0f}, {400.0f, 400.0f}};
-      rect2_.draw(win, 1.0);
+      rect2_.draw(win, 5.0);
 
     //first circ test
     Circ circ1_ {};

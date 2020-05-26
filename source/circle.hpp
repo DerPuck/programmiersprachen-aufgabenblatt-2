@@ -6,7 +6,7 @@
 
 class Circ {
   public: 
-  Circ(Color const& c, Vec2 center , float radius);
+  Circ(Color const& c, Vec2 const& center , float const& radius);
   Circ();
 
   float circumference() const;

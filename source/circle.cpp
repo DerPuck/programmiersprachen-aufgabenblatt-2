@@ -11,12 +11,12 @@ Circ::Circ(){
   
 }
 
-Circ::Circ(Color const& c, Vec2 center , float radius){
+Circ::Circ(Color const& c, Vec2 const& center , float const& radius):
     
-  color_ = {c};
-  center_ = {center};
-  radius_ = {radius};
-}
+  color_ {c},
+  center_ {center},
+  radius_ {radius}
+{}
 
 float Circ::circumference() const{
   return 2 * M_PI * radius_;
