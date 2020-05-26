@@ -290,6 +290,19 @@ Circle c {{0.57f, 0.57f, 0.57f}, {-4.0f, 4.0f}, 4.0f};
 float f3 = c.circumference();
 REQUIRE (f3 == Approx(25.13274f));
 }
+
+TEST_CASE ("describe_circumferencerectangle", "[circumference]")
+{
+Rectangle a {{0.57f, 0.57f, 0.57f}, {1.0f, 1.0f}, {2.0f, 2.0f}};
+float f1 = a.circumference();
+REQUIRE (f1 == Approx(4.0f));
+Rectangle b {{0.57f, 0.57f, 0.57f}, {80.0f, 0.0f}, {-17.0f, 4.0f}};
+float f2 = b.circumference();
+REQUIRE (f2 == Approx(-186.0f));
+Rectangle c {{0.57f, 0.57f, 0.57f}, {4.0f, 4.0f}, {4.0f, 5.0f}};
+float f3 = c.circumference();
+REQUIRE (f3 == Approx(2.0f));
+}
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
