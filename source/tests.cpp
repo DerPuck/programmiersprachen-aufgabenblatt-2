@@ -280,13 +280,13 @@ REQUIRE (a.b == Approx (0.57f));
 
 TEST_CASE ("describe_circumferencecircle", "[circumference]")
 {
-Circle a {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, 1.0f};
+Circ a {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, 1.0f};
 float f1 = a.circumference();
 REQUIRE (f1 == Approx(6.28319f));
-Circle b {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, 0.0f};
+Circ b {{0.57f, 0.57f, 0.57f}, {0.0f, 0.0f}, 0.0f};
 float f2 = b.circumference();
 REQUIRE (f2 == Approx(0.0f));
-Circle c {{0.57f, 0.57f, 0.57f}, {-4.0f, 4.0f}, 4.0f};
+Circ c {{0.57f, 0.57f, 0.57f}, {-4.0f, 4.0f}, 4.0f};
 float f3 = c.circumference();
 REQUIRE (f3 == Approx(25.13274f));
 }

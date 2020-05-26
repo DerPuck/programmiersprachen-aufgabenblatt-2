@@ -1,14 +1,37 @@
 #include "circle.hpp"
 #include "vec2.hpp"
+#include "window.hpp"
+#include "mat2.hpp"
 #include <cmath>
 
-Circle::Circle(Color const& c, Vec2 center , float radius){
+Circ::Circ(){
+  color_ = {0.1f,0.1f,0.1f};
+  center_ = {0.0f, 0.0f};
+  radius_ = {1};
+}
+
+Circ::Circ(Color const& c, Vec2 center , float radius){
     
   color_ = {c};
   center_ = {center};
   radius_ = {radius};
 }
 
-float Circle::circumference() const{
+
+
+float Circ::circumference() const{
   return 2 * M_PI * radius_;
+}
+
+void Circ::draw(Window const& win) const {
+  int seg = 100;
+  Vec2 start {center_.x_, center_.y_ + radius_};
+  while (int i = 1 <= seg)
+  {
+      Vec2 nstart = start;
+      nstart = make_rotation_mat2(M_PI/seg) * nstart;
+      win.draw_line(start.x_, start.y_, nstart.x_, nstart.y_, color_.r, color_.g, color_.b);
+      start = nstart;
+      ++i;
+  }
 }

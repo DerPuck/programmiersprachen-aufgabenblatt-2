@@ -4,7 +4,6 @@
 #include <cmath>
 
 Rect::Rect(Color const& c, Vec2 const& min, Vec2 const& max){
-    
     color_ = {c};
     min_ = {min};
     max_ = {max};

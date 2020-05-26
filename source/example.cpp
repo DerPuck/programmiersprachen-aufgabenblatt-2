@@ -5,6 +5,7 @@
 #include "rectangle.hpp"
 #include "color.hpp"
 #include "vec2.hpp"
+#include "circle.hpp"
 
 
 int main(int argc, char* argv[])
@@ -20,6 +21,10 @@ int main(int argc, char* argv[])
       rect1_.draw(win);
     Rect rect2_ {{0.6f,0.1f,0.1f}, {100.0f, 100.0f}, {400.0f, 400.0f}};
       rect2_.draw(win);
+
+    //first circ test
+    Circ circ1_ {};
+      circ1_.draw(win);
 
     bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
