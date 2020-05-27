@@ -17,8 +17,6 @@ int main(int argc, char* argv[])
   Mat2 rotation{make_rotation_mat2(M_PI/30)};
   Vec2 sec{0.0f, 100.0f};
 
-
-
   while (!umrandung.should_close()) {
     if (umrandung.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       umrandung.close();
